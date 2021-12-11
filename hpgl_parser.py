@@ -85,6 +85,7 @@ def get_polylines_from_hpgl(filepath, dpi):
 
         # list of all pen up commands
         pu_lines = [line[2:] for line in lines if line[0:2] == "PU"][1:-1]
+        # print(pu_lines)
 
         # list of all pen down commands
         pd_lines = [line[2:] for line in lines if line[0:2] == "PD"]
@@ -93,17 +94,20 @@ def get_polylines_from_hpgl(filepath, dpi):
 
         for i in range(len(pd_lines)):
             full_lines.append(pu_lines[i] + "," + pd_lines[i])
+        print(full_lines)
+
 
         # create list of all unsorted poly lines, e.g. "x1,y1,x2,y2,x3,y3"
         # which in [x,y] form should be [[x1,y1],[x2,y2],[x3,y3]
-        unsorted_polylines = [line[2:] for line in full_lines]
+        unsorted_polylines = [line for line in full_lines]
 
         return get_multiple_polylines(unsorted_polylines, dpi)
 
 
 # # check the output:
 
-# polylines = get_polylines_from_hpgl("/Users/bengrant/school/PIE/cyanolaser_local/vector/shapes.hpgl", 500)
-# for pl in polylines:
-#     print(pl)
-#     print("\n\n\n")
+polylines = get_polylines_from_hpgl("/Users/bengrant/school/PIE/cyanolaser_local/vector/shapes.hpgl", 500)
+for pl in polylines:
+    print(pl)
+    print("\n\n\n")
+    break

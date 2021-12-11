@@ -95,7 +95,7 @@ def get_polylines_from_hpgl(filepath, dpi):
 
 # check the output:
 
-# polylines = get_polylines_from_hpgl("/Users/bengrant/school/PIE/cyanolaser/vector/shapes.hpgl", 500)
-# for pl in polylines:
-#     print(pl)
-#     print("\n\n\n")
+polylines = get_polylines_from_hpgl("/Users/bengrant/school/PIE/cyanolaser_local/vector/shapes.hpgl", 500)
+for pl in polylines:
+    print(pl)
+    print("\n\n\n")
